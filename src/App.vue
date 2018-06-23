@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <canvas id="myCanvas" :width="width" :height="height" ></canvas>
+    <div class=''></div>
   </div>
 </template>
 
@@ -10,8 +11,8 @@ export default {
   name: 'App',
   data(){
     return {
-      width: window.innerWidth,
-      height:window.innerHeight
+      width: window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth,
+      height:window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight
     }
   },
   mounted(){
@@ -30,5 +31,15 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  padding: 0px;
+  margin: 0px;
+}
+body{
+  margin: 0px;
+  padding: 0px;
+}
+canvas{
+  padding: 0px;
+  margin: 0px;
 }
 </style>

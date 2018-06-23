@@ -1,3 +1,6 @@
+/**
+ * @description 游戏背景
+ */
 import {Sprite} from "../base/Sprite"
 import {DataStore} from "../base/DataStore";
 export class BackGround extends Sprite{

@@ -1,7 +1,7 @@
 {
-  "name": "my-project",
+  "name": "H5-Game",
   "version": "1.0.0",
-  "description": "A Vue.js project",
+  "description": "抽奖游戏",
   "author": "hdl",
   "private": true,
   "scripts": {

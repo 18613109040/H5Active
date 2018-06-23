@@ -1,3 +1,6 @@
+/**
+ * @description 静态资源加载器
+ */
 import  {Resources} from  './Resources'
 export class  ResourceLoader{
   constructor(){

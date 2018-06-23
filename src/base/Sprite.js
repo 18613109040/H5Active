@@ -1,5 +1,7 @@
+/**
+ * @description 游戏精灵 
+ */
 import {DataStore} from "./DataStore";
-
 export class Sprite {
   constructor(img = null,
               srcX = 0,

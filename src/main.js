@@ -1,9 +1,9 @@
 import {DataStore} from './base/DataStore'
 import {ResourceLoader} from './base/ResourceLoader'
-import {DefaultBackGround} from "./runtime/DefaultBackGround";
 import {Director} from "./Director";
-import {SelectedBackGround} from "./runtime/SelectedBackGround";
 import {BackGround} from "./runtime/BackGround";
+import { StartButton } from './player/StartButton';
+import { RunButton } from './player/RunButton';
 export class Main {
   constructor(id = "myCanvas") {
     this.canvas = document.getElementById(id);
@@ -22,25 +22,33 @@ export class Main {
   }
 
   init() {
-    this.director.isGameOver = false;
-    let width = this.dataStore.canvas.width;
+    this.director.isStart = false;
     this.dataStore
         .put('background',BackGround)
-        .put('prize',[])
+        .put('prizes',[])
+        .put('startButton', StartButton)
+        .put('runButton',RunButton)
     this.registerEvent();
+    this.director.createPrizes()
     this.director.run();
 
   }
 
   registerEvent() {
-    this.canvas.addEventListener('touchstart', e => {
+    this.canvas.addEventListener('click', e => {
         //屏蔽掉JS的事件冒泡
         e.preventDefault();
-        if (this.director.isGameOver) {
-            console.log('游戏开始');
-            this.init();
+        if (!this.director.isStart) {
+            console.log('开始抽奖');
+            this.dataStore.put('prizes',[])
+            this.director.createPrizes()
+            this.director.isStart = true;
+            this.director.moveSpeed = 0;
+            this.director.moveWidth = 0;
+            this.director.speed = 40;
+            this.director.prizeNumber = 0
         } else {
-            
+
         }
     });
   }
